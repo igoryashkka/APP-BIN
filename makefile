@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -O3 -ffast-math -g
+CFLAGS = -Wall -Wextra -O1 -g
 
 SRCS = main.c lib.c
 HDRS = main.h lib.h
@@ -18,3 +18,8 @@ $(TARGET): $(OBJS)
 
 clean:
 	rm -f $(OBJS) $(TARGET)
+
+debug: CFLAGS += -DDEBUG
+debug: all
+
+.PHONY: debug
