@@ -14,51 +14,45 @@ uint32_t status = 0;
 // bin in dec fp
 // cli 
 //error handling 
-//secure (MISRA)
+//secure 
 //
 // perfomance
 // refact
 //additinal tasks
 
 
+void foo(int *b){
+
+//
+}
+
+int so = 10;
+
+
 int main() {
   
     int eleven = 11;
-    printf("Before -- \n");
-    printf("numebr : %d\n",eleven);
-    convert_decimal_bin(eleven);
-    printf("After -- \n");
-    eleven = set_bit(eleven,10);
-    printf("numebr : %d\n",eleven);
-    convert_decimal_bin(eleven);
-    printf("After Reset -- \n");
-    eleven = reset_bit(eleven, 10);
-    eleven = reset_bit(eleven, 1);
-    printf("numebr : %d\n",eleven);
-    convert_decimal_bin(eleven);
-
+    int array_eleven[32];
+    int array[32];
     
-    //char bin_num[34];
-    // take user input
-    //printf("Enter Bin number ");
-    //scanf("%s", bin_num);
-    
-    // printing the input value
-   // printf("your number is %s\n", bin_num);
-    // not working
-    //printf("dec num : %d",convert_bin_to_decimal(bin_num));
+  
+    float number = 243.3;
 
-    //printf("\n\n\n");
-    //
-    
+    printf("\n\n");
 
-    int* arr_integer_part = NULL;
-    int arr_integer_part_n [32];
-    float fp_number = 500.78;
-    printf("Test fp \n");
-   // convert_decimal_to_fp_bin(fp_number,arr_integer_part);
+    printf("dec_bin no ptr \n\n");
+    printf(" main test - -2 ");
+    convert_decimal_bin(eleven);
+    printf(" main test - -1 ");
+    printf("dec_bin origin ptr \n\n");
+   
+    int counter = convert_decimal_bin_origin(eleven,array_eleven);
+  
+    show_arr(array_eleven,counter);
+   
+    convert_decimal_to_fp_bin(number,array);
 
-    printf("\n \n\n");
+
 
 
     

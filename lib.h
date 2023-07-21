@@ -17,6 +17,13 @@ int convert_bin_to_decimal(char*bin_num);
 void convert_decimal_to_fp_bin(double fp_decimal,int* arr_integer_part);
 
 
+int convert_decimal_bin_origin(int int_bin,int *arr_bin);
+
+
+void show_arr(int *arr,int counter);
+
+
+
 #define ASCII_ZERO 48
 
 #endif
