@@ -13,6 +13,10 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@
 
+test: unit_test.o lib.o 
+	$(CC) $(CFLAGS) -o test unit_test.o lib.o
+
+
 %.o: %.c $(HDRS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
