@@ -14,10 +14,17 @@ int set_bit(int number,int bit_position){
     return (number | (1<<bit_position));
      
 }
+
+//to do as macro , function - with pointers
+
 int toggle_bit(int number,int bit_position){
     return (number ^ (1<<bit_position));
 }
-/// 
+
+void toggle_bit_ptr(int *number,int bit_position){
+    (*number) ^= (1<<bit_position);
+}
+
 
 int convert_bin_to_decimal(char*bin_num){
     int number_vaueble_bit = strlen(bin_num);
@@ -35,19 +42,11 @@ int convert_bin_to_decimal(char*bin_num){
             number_dec += pow(2,j);
         } 
     }
-
-    
-    
     return number_dec;
 }
 
 
-void show_arr(int *arr,int counter){
-    for (int i = counter - 1; i >=0 ; i--)
-    {
-        printf("%d",arr[i]);
-    }
-}
+
 
 int convert_decimal_bin_origin(int int_bin,int *arr_bin){
     int counter = 0;
@@ -69,7 +68,7 @@ int convert_decimal_bin_origin(int int_bin,int *arr_bin){
 
 
 // --- Fp conversation --- //
-
+// check sign 
 void convert_decimal_to_fp_bin(double fp_decimal,int* arr_integer_part){
     int current_arr_int[32];
    
@@ -78,12 +77,7 @@ void convert_decimal_to_fp_bin(double fp_decimal,int* arr_integer_part){
     int int_fp_decimal = fp_decimal;
     double fract_fp_decimal = fp_decimal - int_fp_decimal;
 
-    printf("= %f\n",fract_fp_decimal);
-   
-
     counter = convert_decimal_bin_origin(int_fp_decimal,current_arr_int);
-  
-
     arr_integer_part = (int*) malloc(counter * sizeof(int));
 
    
@@ -91,10 +85,8 @@ void convert_decimal_to_fp_bin(double fp_decimal,int* arr_integer_part){
         arr_integer_part[i] = current_arr_int[i];
     }
  
- 
-    printf("\n\n");
 
-     for(int i = counter - 1;i >=0; i--) {
+    for(int i = counter - 1;i >=0; i--) {
       printf("%d",  arr_integer_part[i]);
     }
     
@@ -103,12 +95,9 @@ void convert_decimal_to_fp_bin(double fp_decimal,int* arr_integer_part){
 
     while (true)
     {
-      //
-
-
         fract_fp_decimal = fract_fp_decimal * (double)2.00;
 
-    if (counetr_i == 12 ) {fract_fp_decimal += 0.1;}
+        if(counetr_i == 12 ) {fract_fp_decimal += 0.1;}
        
         
         if (fract_fp_decimal >= 1.0) {
@@ -122,21 +111,57 @@ void convert_decimal_to_fp_bin(double fp_decimal,int* arr_integer_part){
 
 
         if (counetr_i == 24){break;}
-    
     }
 
     printf(".");
+
     for(int i = 0;i < counetr_i; i++) {
       printf("%d",  current_arr_double[i]);
     }
 
 
 
- // fractorial part  //
+    // fractorial part  //
 
- //Normalize AND//
-    
+    //Normalize AND//
+    free(arr_integer_part);
 
 }
 
-//
+
+int count_seted_bit(int number){
+    int counter = 0;
+    int counter_set_bits = 0;
+    int temp_numner = number;
+    while (number>0)
+    {   
+        if (check_bit(temp_numner,counter)==1)
+        {
+            counter_set_bits++;
+        }
+        counter++;
+        number = number/2 ;   
+    }
+    return counter_set_bits;
+}
+
+int reverse_bits(int number){
+    int counter = 0;
+    int temp_numner = number;
+    int *current_number = &temp_numner;
+
+    while (number>0)
+    {   
+        toggle_bit_ptr(current_number,counter);
+        counter++;
+        number = number/2 ;   
+    }   
+    return *current_number;
+}
+
+void show_arr(int *arr,int counter){
+    for (int i = counter - 1 ; i >=0 ; i--)
+    {
+        printf("%d",arr[i]);
+    }
+}

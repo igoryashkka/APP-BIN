@@ -21,37 +21,33 @@ uint32_t status = 0;
 //additinal tasks
 
 
-void foo(int *b){
-
-//
-}
-
-int so = 10;
-
-
 int main() {
   
-    int eleven = 11;
-    int array_eleven[32];
-    int array[32];
     
+    int array[32];
+    int array_number[32];
   
-    float number = 243.3;
+    int number = 5789;
 
     printf("\n\n");
 
-    printf("dec_bin no ptr \n\n");
-    printf(" main test - -2 ");
-    convert_decimal_bin(eleven);
-    printf(" main test - -1 ");
-    printf("dec_bin origin ptr \n\n");
    
-    int counter = convert_decimal_bin_origin(eleven,array_eleven);
+    int counter = convert_decimal_bin_origin(number,array);
   
-    show_arr(array_eleven,counter);
+    show_arr(array,counter);
    
-    convert_decimal_to_fp_bin(number,array);
 
+
+    printf("\n --- \n");
+
+
+    int new_number = reverse_bits(number);
+
+    printf("\n -- %d \n", new_number);
+
+    int new_counter = convert_decimal_bin_origin(new_number,array_number);
+  
+    show_arr(array_number,new_counter);
 
 
 
