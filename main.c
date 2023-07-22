@@ -5,49 +5,27 @@
 
 
 
-
-//do we need here put volatile ? 
-uint32_t status = 0;
 //TODO : 
-//Tests
-// Toggling 
-// bin in dec fp
 // cli 
 //error handling 
-//secure 
-//
+//secure
+//refact make
 // perfomance
-// refact
-//additinal tasks
+
 
 
 int main() {
   
     
-    int array[32];
-    int array_number[32];
-  
-    int number = 5789;
+
 
     printf("\n\n");
 
-   
-    int counter = convert_decimal_bin_origin(number,array);
-  
-    show_arr(array,counter);
-   
+    char * ptr = "0b1111";
+    printf("%d",convert_bin_to_decimal(ptr));
 
+    printf("\n\n--------");
 
-    printf("\n --- \n");
-
-
-    int new_number = reverse_bits(number);
-
-    printf("\n -- %d \n", new_number);
-
-    int new_counter = convert_decimal_bin_origin(new_number,array_number);
-  
-    show_arr(array_number,new_counter);
 
 
 

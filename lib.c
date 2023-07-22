@@ -15,8 +15,6 @@ int set_bit(int number,int bit_position){
      
 }
 
-//to do as macro , function - with pointers
-
 int toggle_bit(int number,int bit_position){
     return (number ^ (1<<bit_position));
 }
@@ -29,6 +27,7 @@ void toggle_bit_ptr(int *number,int bit_position){
 int convert_bin_to_decimal(char*bin_num){
     int number_vaueble_bit = strlen(bin_num);
     int number_dec = 0;
+
 
     for (int i = number_vaueble_bit - 1, j = 0; i > 1;j++, i--)
     {   
