@@ -37,14 +37,21 @@ void test_convert_bin_to_decimal(void) {
     TEST_CHECK_(convert_bin_to_decimal(number_3) == 43, "convert_bin_to_decimal(%s) = %d ", number_3, 43);
 }
 
-// need to fix
+// need to fix , because arr_number is not 243 
+// neet to improve convert_decimal_bin_origin because it`s reverse odering of numbers
+// and show_arr reverse again - but to show right value , we need to pass right order of numbers
 void test_convert_decimal_to_bin(void) {
     const int size = 8;
-    int arr_number[size] = {1,1,1,1,0,0,1,1};
+    //int arr_number[size] = {1,1,1,1,0,0,1,1};
+    int arr_number[size] = {1,1,0,0,1,1,1,1};
     int test_number[size];
-
+    //0b11110011
     int test_size = convert_decimal_bin_origin(243,test_number);
 
+    show_arr(test_number,test_size);
+    printf("\n\n");
+    show_arr(arr_number,size);
+    
     TEST_CHECK_(test_size == size && (memcmp(arr_number, test_number, sizeof(arr_number)) == 0), "convert_decimal_bin( _ ) =  %d", 8);
 
 

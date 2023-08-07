@@ -1,5 +1,5 @@
 #include "lib.h"
-
+#define DEBUG_INFO_TEST_STEPS
 //do as macro
 int check_bit(int number,int bit_position){
     return (number>>bit_position) & 1;
@@ -25,6 +25,11 @@ void toggle_bit_ptr(int *number,int bit_position){
 
 
 int convert_bin_to_decimal(char*bin_num){
+   #ifdef DEBUG_INFO_DESCRIPTION
+      printf("Function convert_bin_to_decimal started .\n");
+      printf("args : char * bin_num : \n");
+   #endif
+
     int number_vaueble_bit = strlen(bin_num);
     int number_dec = 0;
 
@@ -48,6 +53,11 @@ int convert_bin_to_decimal(char*bin_num){
 
 
 int convert_decimal_bin_origin(int int_bin,int *arr_bin){
+     #ifdef DEBUG_INFO_DESCRIPTION
+      printf("Function convert_decimal_bin_origin started .\n");
+      printf("args : int int_bin , int *arr_bin: \n");
+    #endif
+
     int counter = 0;
     while (int_bin>0)
     {   
@@ -69,6 +79,10 @@ int convert_decimal_bin_origin(int int_bin,int *arr_bin){
 // --- Fp conversation --- //
 // check sign 
 void convert_decimal_to_fp_bin(double fp_decimal,int* arr_integer_part){
+     #ifdef DEBUG_INFO_DESCRIPTION
+      printf("Function convert_decimal_to_fp_bin started .\n");
+      printf("args : double fp_decimal ,int* arr_integer_part \n");
+    #endif
     int current_arr_int[32];
    
     int counter = 0;
@@ -84,6 +98,7 @@ void convert_decimal_to_fp_bin(double fp_decimal,int* arr_integer_part){
         arr_integer_part[i] = current_arr_int[i];
     }
  
+    
 
     for(int i = counter - 1;i >=0; i--) {
       printf("%d",  arr_integer_part[i]);
@@ -129,6 +144,10 @@ void convert_decimal_to_fp_bin(double fp_decimal,int* arr_integer_part){
 
 
 int count_seted_bit(int number){
+    #ifdef DEBUG_INFO_DESCRIPTION
+      printf("Function count_seted_bit started .\n");
+      printf("args : int number\n");
+    #endif
     int counter = 0;
     int counter_set_bits = 0;
     int temp_numner = number;
@@ -145,6 +164,10 @@ int count_seted_bit(int number){
 }
 
 int reverse_bits(int number){
+    #ifdef DEBUG_INFO_DESCRIPTION
+      printf("Function count_seted_bit started .\n");
+      printf("args : int number\n");
+    #endif
     int counter = 0;
     int temp_numner = number;
     int *current_number = &temp_numner;
