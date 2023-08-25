@@ -65,10 +65,20 @@ void show_menu_changging_bits(){
    secure_print("[4] - check_bit");
 }
 
+void cat(){  printf("         /\\_/\\              /\\_/\\  \n");
+    printf("    ____/ o o \\            ( o.o )   - Hello, it's APP-BIN for converting binary numbers!\n");
+    printf("  /~____  =ø= /              > ^ <  \n");
+    printf(" (______)__m_m)\n");
+    }
+
 
 int main() {
   
+   cat();
    show_greetings();
+  
+
+   
    int user_input = 0;
    scanf("%d", &user_input);
 
@@ -78,6 +88,8 @@ int main() {
    switch (user_input)
    {
    case 1:
+   
+      cat();
       show_menu_changging_bits();
       
       break;
